@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shilp — शिल्प · A Hindi Programming Language</title>
+  <meta name="description" content="Shilp (शिल्प) is a Hindi programming language whose semantics are identical to Python. Write code in Devanagari — every Python feature just works." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Shilp — शिल्प · A Hindi Programming Language" />
+  <meta property="og:description" content="Write code in Hindi. Runs on CPython. Every Python feature works." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪷</text></svg>" />
+</head>
+<body>
+
+  <!-- Animated background layers -->
+  <div class="bg-gradient"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
+  <!-- ===== NAV ===== -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__brand">
+      <span class="nav__logo">🪷</span>
+      <span class="nav__name">Shilp<span class="nav__deva"> · शिल्प</span></span>
+    </a>
+    <nav class="nav__links">
+      <a href="#features">Features</a>
+      <a href="#demo">Live Demo</a>
+      <a href="#keywords">Keywords</a>
+      <a href="#install">Install</a>
+      <a href="https://github.com/prashlkam/Shilp" target="_blank" rel="noopener" class="nav__github">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-1.7c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+        GitHub
+      </a>
+    </nav>
+    <button class="nav__burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="top">
+    <div class="hero__inner">
+      <div class="hero__copy reveal">
+        <div class="hero__badge">
+          <span class="pulse-dot"></span>
+          सहज हिंदी लिपि प्रकल्प · Sahaj Hindi Lipi Prakalp
+        </div>
+        <h1 class="hero__title">
+          Code in <span class="grad-text">Hindi.</span><br />
+          Powered by <span class="grad-text-2">Python.</span>
+        </h1>
+        <p class="hero__sub">
+          <strong>Shilp (शिल्प)</strong> is a Hindi programming language whose semantics are
+          <em>identical</em> to Python — a thin, token-level translation layer over CPython.
+          Write in Devanagari, and <span class="hl">every Python feature just works.</span>
+        </p>
+        <div class="hero__cta">
+          <a href="#install" class="btn btn--primary">
+            शुरू करें · Get Started
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="https://github.com/prashlkam/Shilp" target="_blank" rel="noopener" class="btn btn--ghost">View on GitHub</a>
+        </div>
+        <ul class="hero__stats">
+          <li><b>1:1</b><span>Python mapping</span></li>
+          <li><b>देवनागरी</b><span>native script</span></li>
+          <li><b>CPython</b><span>runtime</span></li>
+        </ul>
+      </div>
+
+      <!-- Floating code card -->
+      <div class="hero__code reveal reveal--delay">
+        <div class="code-card">
+          <div class="code-card__bar">
+            <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+            <span class="code-card__file">namaste.shilp</span>
+          </div>
+          <pre class="code-card__body"><code id="typed-code"></code><span class="caret" id="caret"></span></pre>
+          <div class="code-card__run">
+            <span class="run-prompt">$ shilp namaste.shilp</span>
+            <div class="run-out" id="run-out"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#features" class="hero__scroll" aria-label="Scroll down"><span></span></a>
+  </section>
+
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>कार्य → def</span><span>अगर → if</span><span>हर → for</span><span>वर्ग → class</span>
+      <span>छापो → print</span><span>आयात → import</span><span>वापस → return</span><span>सत्य → True</span>
+      <span>कोशिश → try</span><span>जब_तक → while</span><span>में → in</span><span>और → and</span>
+      <span>कार्य → def</span><span>अगर → if</span><span>हर → for</span><span>वर्ग → class</span>
+      <span>छापो → print</span><span>आयात → import</span><span>वापस → return</span><span>सत्य → True</span>
+      <span>कोशिश → try</span><span>जब_तक → while</span><span>में → in</span><span>और → and</span>
+    </div>
+  </div>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="section" id="features">
+    <div class="section__head reveal">
+      <span class="eyebrow">विशेषताएँ · Features</span>
+      <h2>Familiar power, in your own script</h2>
+      <p>Because the mapping is one-to-one and reversible, Shilp doesn't reimplement Python — it <em>is</em> Python, spoken in Hindi.</p>
+    </div>
+
+    <div class="features">
+      <article class="feat-card reveal">
+        <div class="feat-card__icon">🧩</div>
+        <h3>Full Python parity</h3>
+        <p>Classes, generators, decorators, async/await, pattern matching — all of it works, because CPython compiles the translated tokens directly.</p>
+      </article>
+      <article class="feat-card reveal">
+        <div class="feat-card__icon">🔤</div>
+        <h3>Native Devanagari</h3>
+        <p>Hindi keywords and Devanagari numerals convert seamlessly. Write <code>अगर</code>, <code>हर</code>, <code>वर्ग</code> — read like Python underneath.</p>
+      </article>
+      <article class="feat-card reveal">
+        <div class="feat-card__icon">🪶</div>
+        <h3>Thin translation layer</h3>
+        <p>A token-level pass maps Hindi to Python while preserving line numbers — no heavy interpreter, no runtime penalty.</p>
+      </article>
+      <article class="feat-card reveal">
+        <div class="feat-card__icon">📦</div>
+        <h3>Any Python library</h3>
+        <p>Import NumPy, requests, Django — the whole ecosystem imports normally. Multi-file <code>.shilp</code> modules work too.</p>
+      </article>
+      <article class="feat-card reveal">
+        <div class="feat-card__icon">🩺</div>
+        <h3>Hindi error messages</h3>
+        <p>Tracebacks appear in Hindi with the original source lines preserved, so debugging stays in your language.</p>
+      </article>
+      <article class="feat-card reveal">
+        <div class="feat-card__icon">🎨</div>
+        <h3>Editor support</h3>
+        <p>VS Code syntax highlighting plus phonetic input snippets — type in roman, get Devanagari keywords instantly.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== DEMO / TRANSLATION ===== -->
+  <section class="section section--demo" id="demo">
+    <div class="section__head reveal">
+      <span class="eyebrow">अनुवाद · Translation</span>
+      <h2>See it translate, live</h2>
+      <p>The same program — on the left in Shilp, on the right the Python that CPython actually runs. Run <code>shilp anuvad</code> to see it yourself.</p>
+    </div>
+
+    <div class="translate reveal">
+      <div class="translate__pane">
+        <div class="translate__label"><span class="dot dot--g"></span> namaste.shilp</div>
+        <pre class="translate__code"><code class="lang-shilp">कार्य अभिवादन(नाम):
+    अगर नाम == "":
+        वापस "नमस्ते, दुनिया!"
+    वापस f"नमस्ते, {नाम}!"
+
+हर व्यक्ति में ["अर्जुन", "प्रिया", "कबीर"]:
+    छापो(अभिवादन(व्यक्ति))</code></pre>
+      </div>
+
+      <div class="translate__arrow">
+        <div class="translate__arrow-circle">→</div>
+        <span>shilp anuvad</span>
+      </div>
+
+      <div class="translate__pane">
+        <div class="translate__label"><span class="dot dot--y"></span> generated.py</div>
+        <pre class="translate__code"><code class="lang-py">def greet(name):
+    if name == "":
+        return "नमस्ते, दुनिया!"
+    return f"नमस्ते, {name}!"
+
+for person in ["अर्जुन", "प्रिया", "कबीर"]:
+    print(greet(person))</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== KEYWORDS ===== -->
+  <section class="section" id="keywords">
+    <div class="section__head reveal">
+      <span class="eyebrow">शब्दकोश · Vocabulary</span>
+      <h2>The keyword map</h2>
+      <p>Dozens of constructs map one-to-one. Here are the essentials — hover to reveal the pairing.</p>
+    </div>
+
+    <div class="kw-grid reveal" id="kw-grid">
+      <!-- populated by script.js -->
+    </div>
+
+    <p class="kw-note reveal">Methods &amp; attributes stay English in v1 — with language-pack architecture ready for other Indian languages.</p>
+  </section>
+
+  <!-- ===== INSTALL / QUICKSTART ===== -->
+  <section class="section section--install" id="install">
+    <div class="section__head reveal">
+      <span class="eyebrow">प्रारंभ · Quickstart</span>
+      <h2>Up and running in seconds</h2>
+      <p>If you have Python 3.12+, you already have everything you need.</p>
+    </div>
+
+    <div class="install reveal">
+      <div class="install__steps">
+        <div class="step">
+          <div class="step__num">1</div>
+          <div class="step__body">
+            <h4>Install with pip</h4>
+            <div class="cmd"><code>pip install shilp</code><button class="copy" data-copy="pip install shilp" aria-label="Copy">⧉</button></div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">2</div>
+          <div class="step__body">
+            <h4>Write your first program</h4>
+            <div class="cmd"><code>छापो("नमस्ते, दुनिया!")</code><button class="copy" data-copy='छापो("नमस्ते, दुनिया!")' aria-label="Copy">⧉</button></div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">3</div>
+          <div class="step__body">
+            <h4>Run it</h4>
+            <div class="cmd"><code>shilp program.shilp</code><button class="copy" data-copy="shilp program.shilp" aria-label="Copy">⧉</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="install__cli">
+        <h4 class="install__cli-title">CLI commands</h4>
+        <ul class="cli-list">
+          <li><code>shilp</code><span>launch the interactive REPL</span></li>
+          <li><code>shilp program.shilp</code><span>execute a program</span></li>
+          <li><code>shilp anuvad program.shilp</code><span>show the generated Python</span></li>
+          <li><code>shilp jaanch program.shilp</code><span>validate syntax only</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta reveal">
+    <div class="cta__inner">
+      <h2>अपनी भाषा में कोड लिखें।</h2>
+      <p>Bring programming home. Star the project, try the REPL, and build something in Hindi.</p>
+      <div class="hero__cta">
+        <a href="https://github.com/prashlkam/Shilp" target="_blank" rel="noopener" class="btn btn--primary">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-1.7c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+          Star on GitHub
+        </a>
+        <a href="#top" class="btn btn--ghost">Back to top</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="nav__logo">🪷</span>
+        <div>
+          <strong>Shilp · शिल्प</strong>
+          <small>Sahaj Hindi Lipi Prakalp — a Hindi programming language.</small>
+        </div>
+      </div>
+      <div class="footer__links">
+        <a href="https://github.com/prashlkam/Shilp" target="_blank" rel="noopener">Repository</a>
+        <a href="https://github.com/prashlkam/Shilp/blob/main/SPEC.md" target="_blank" rel="noopener">Spec</a>
+        <a href="https://github.com/prashlkam/Shilp/blob/main/README.md" target="_blank" rel="noopener">Docs</a>
+        <a href="#install">Install</a>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <span>Licensed under GPL v3.0</span>
+      <span>Built with ♥ for भारत · Hosted on Azure Static Web Apps</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
